@@ -4182,6 +4182,7 @@ function library:CreateWindow(options, ...)
 				labelHeadline.Position = UDim2.fromScale(0.031, 0.165842161)
 				labelHeadline.Size = UDim2.fromOffset(215, 12)
 				labelHeadline.Font = Enum.Font.Code
+				labelHeadline.RichText = true --// ADDED
 				labelHeadline.Text = (labelName and tostring(labelName)) or "Empty Text"
 				labelHeadline.TextColor3 = library.colors.elementText
 				colored[1 + #colored] = {labelHeadline, "TextColor3", "elementText"}
@@ -8121,3 +8122,4 @@ library.Window = library.CreateWindow
 library.W = library.CreateWindow
 
 return library, library_flags, library.subs
+
