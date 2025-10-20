@@ -480,25 +480,25 @@ local library = {
 		easingStyle = Enum.EasingStyle.Quart,
 		easingDirection = Enum.EasingDirection.Out
 	},
-	colors = {
-		main = Color3.fromRGB(255, 39, 39),
-		background = Color3.fromRGB(40, 40, 40),
-		outerBorder = Color3.fromRGB(15, 15, 15),
-		innerBorder = Color3.fromRGB(73, 63, 73),
-		topGradient = Color3.fromRGB(35, 35, 35),
-		bottomGradient = Color3.fromRGB(29, 29, 29),
-		sectionBackground = Color3.fromRGB(35, 34, 34),
-		section = Color3.fromRGB(176, 175, 176),
-		otherElementText = Color3.fromRGB(129, 127, 129),
-		elementText = Color3.fromRGB(147, 145, 147),
-		elementBorder = Color3.fromRGB(20, 20, 20),
-		selectedOption = Color3.fromRGB(55, 55, 55),
-		unselectedOption = Color3.fromRGB(40, 40, 40),
-		hoveredOptionTop = Color3.fromRGB(65, 65, 65),
-		unhoveredOptionTop = Color3.fromRGB(50, 50, 50),
-		hoveredOptionBottom = Color3.fromRGB(45, 45, 45),
-		unhoveredOptionBottom = Color3.fromRGB(35, 35, 35),
-		tabText = Color3.fromRGB(185, 185, 185)
+	colors = { --EDITED
+		main = Color3.fromRGB(39, 176, 255),
+	   	background = Color3.fromRGB(16, 16, 16),
+	    outerBorder = Color3.fromRGB(6, 6, 6),
+	    innerBorder = Color3.fromRGB(29, 25, 29),
+	    topGradient = Color3.fromRGB(14, 14, 14),
+	    bottomGradient = Color3.fromRGB(11, 11, 11),
+	    sectionBackground = Color3.fromRGB(15, 15, 15),
+	    section = Color3.fromRGB(39, 176, 255),
+	    otherElementText = Color3.fromRGB(200, 198, 200),
+	    elementText = Color3.fromRGB(220, 218, 220),
+	    elementBorder = Color3.fromRGB(8, 8, 8),
+	    selectedOption = Color3.fromRGB(22, 22, 22),
+	    unselectedOption = Color3.fromRGB(16, 16, 16),
+	    hoveredOptionTop = Color3.fromRGB(26, 26, 26),
+	    unhoveredOptionTop = Color3.fromRGB(20, 20, 20),
+	    hoveredOptionBottom = Color3.fromRGB(18, 18, 18),
+	    unhoveredOptionBottom = Color3.fromRGB(14, 14, 14),
+	    tabText = Color3.fromRGB(230, 230, 230)
 	},
 	gui_parent = (function()
 		local x, c = pcall(function()
@@ -8122,4 +8122,5 @@ library.Window = library.CreateWindow
 library.W = library.CreateWindow
 
 return library, library_flags, library.subs
+
 
