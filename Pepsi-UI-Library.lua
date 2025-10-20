@@ -2426,47 +2426,52 @@ function library:CreateWindow(options, ...)
 			newTab.TextStrokeTransparency = 0.75
 			newTab.Size = UDim2:new(textToSize(newTab).X + 4, 1)
 		end
-		local function goto()
-			if windowFunctions.CloseDropdown then
-				pcall(windowFunctions.CloseDropdown)
-				windowFunctions.CloseDropdown = nil
-			end
-			if not library.colorpicker and not submenuOpen and (windowFunctions.selected.button ~= newTab) and newTab.Parent and newTabHolder.Parent then
-				pcall(function()
-					for _, e in next, library.elements do
-						if e and (type(e) == "table") then
-							if e.Update then
-								pcall(e.Update)
-							end
-							if e.UpdateAll then
-								pcall(e.UpdateAll)
-							end
-						end
-					end
-				end)
-				if windowFunctions.LastTab then
-					windowFunctions.LastTab[4] = 1.35
-				end
-				windowFunctions:MoveTabSlider(newTab)
-				if windowFunctions.selected.button.ClassName == "TextButton" then
-					tweenService:Create(windowFunctions.selected.button, TweenInfo.new(0.35, library.configuration.easingStyle, library.configuration.easingDirection), {
-						TextColor3 = darkenColor(library.colors.tabText, 1.35)
-					}):Play()
-				end
-				if colored_newTab_TextColor3 then
-					colored_newTab_TextColor3[4] = nil
-				end
-				windowFunctions.selected.holder.Visible = false
-				windowFunctions.selected.button = newTab
-				windowFunctions.selected.holder = newTabHolder
-				if windowFunctions.selected.button.ClassName == "TextButton" then
-					tweenService:Create(windowFunctions.selected.button, TweenInfo.new(0.35, library.configuration.easingStyle, library.configuration.easingDirection), {
-						TextColor3 = library.colors.tabText
-					}):Play()
-				end
-				windowFunctions.selected.holder.Visible = true
-				windowFunctions.LastTab = colored_newTab_TextColor3
-			end
+		local function goto() --EDITED
+		    if windowFunctions.CloseDropdown then
+		        pcall(windowFunctions.CloseDropdown)
+		        windowFunctions.CloseDropdown = nil
+		    end
+		    if not library.colorpicker and not submenuOpen and (windowFunctions.selected.button ~= newTab) and newTab.Parent and newTabHolder.Parent then
+		        pcall(function()
+		            for _, e in next, library.elements do
+		                if e and (type(e) == "table") then
+		                    if e.Update then
+		                        pcall(e.Update)
+		                    end
+		                    if e.UpdateAll then
+		                        pcall(e.UpdateAll)
+		                    end
+		                end
+		            end
+		        end)
+		        
+		        -- Reset ALL tabs to unselected color first
+		        for _, tab in next, tabsHolder:GetChildren() do
+		            if tab:IsA("TextButton") then
+		                tab.TextColor3 = library.colors.tabText
+		            end
+		        end
+		        
+		        if windowFunctions.LastTab then
+		            windowFunctions.LastTab[4] = 1.35
+		        end
+		        windowFunctions:MoveTabSlider(newTab)
+		        
+		        -- Set the newly selected tab to selected color
+		        if newTab.ClassName == "TextButton" then
+		            newTab.TextColor3 = library.colors.tabTextSelected
+		        end
+		        
+		        if colored_newTab_TextColor3 then
+		            colored_newTab_TextColor3[4] = nil
+		        end
+		        windowFunctions.selected.holder.Visible = false
+		        windowFunctions.selected.button = newTab
+		        windowFunctions.selected.holder = newTabHolder
+		        
+		        windowFunctions.selected.holder.Visible = true
+		        windowFunctions.LastTab = colored_newTab_TextColor3
+		    end
 		end
 		if homepage or (newTab.LayoutOrder > 4) then
 		else
@@ -8123,6 +8128,7 @@ library.Window = library.CreateWindow
 library.W = library.CreateWindow
 
 return library, library_flags, library.subs
+
 
 
 
