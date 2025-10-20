@@ -498,7 +498,8 @@ local library = {
 	    unhoveredOptionTop = Color3.fromRGB(20, 20, 20),
 	    hoveredOptionBottom = Color3.fromRGB(18, 18, 18),
 	    unhoveredOptionBottom = Color3.fromRGB(14, 14, 14),
-	    tabText = Color3.fromRGB(230, 230, 230)
+	    tabText = Color3.fromRGB(160, 160, 160),
+		tabTextSelected = Color3.fromRGB(39, 176, 255)
 	},
 	gui_parent = (function()
 		local x, c = pcall(function()
@@ -2414,11 +2415,11 @@ function library:CreateWindow(options, ...)
 			colored[1 + #colored] = colored_newTab_TextColor3
 			newTab.Font = Enum.Font.Code
 			newTab.Text = (tabName and tostring(tabName)) or "???"
-			if windowFunctions.tabCount ~= 1 then
-				colored_newTab_TextColor3[4] = 1.35
-				newTab.TextColor3 = darkenColor(library.colors.tabText, 1.35)
-			else
+			if windowFunctions.tabCount ~= 1 then --EDITED 
+				colored_newTab_TextColor3[4] = "tabText"
 				newTab.TextColor3 = library.colors.tabText
+			else
+			    newTab.TextColor3 = library.colors.tabTextSelected
 			end
 			newTab.TextSize = 14
 			newTab.TextStrokeColor3 = Color3.fromRGB(42, 42, 42)
@@ -8122,5 +8123,6 @@ library.Window = library.CreateWindow
 library.W = library.CreateWindow
 
 return library, library_flags, library.subs
+
 
 
