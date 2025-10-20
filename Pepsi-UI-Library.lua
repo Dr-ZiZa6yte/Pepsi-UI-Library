@@ -481,24 +481,24 @@ local library = {
 		easingDirection = Enum.EasingDirection.Out
 	},
 	colors = { --EDITED
-		main = Color3.fromRGB(39, 176, 255),
+		main = Color3.fromRGB(160, 116, 159),
 	   	background = Color3.fromRGB(16, 16, 16),
-	    outerBorder = Color3.fromRGB(6, 6, 6),
+	    outerBorder = Color3.fromRGB(29, 25, 29),
 	    innerBorder = Color3.fromRGB(29, 25, 29),
 	    topGradient = Color3.fromRGB(14, 14, 14),
-	    bottomGradient = Color3.fromRGB(11, 11, 11),
+	    bottomGradient = Color3.fromRGB(14, 14, 14),
 	    sectionBackground = Color3.fromRGB(15, 15, 15),
-	    section = Color3.fromRGB(39, 176, 255),
+	    section = ui.colors.main,
 	    otherElementText = Color3.fromRGB(200, 198, 200),
 	    elementText = Color3.fromRGB(220, 218, 220),
-	    elementBorder = Color3.fromRGB(8, 8, 8),
+	    elementBorder = Color3.fromRGB(22, 22, 22),
 	    selectedOption = Color3.fromRGB(22, 22, 22),
 	    unselectedOption = Color3.fromRGB(16, 16, 16),
 	    hoveredOptionTop = Color3.fromRGB(26, 26, 26),
 	    unhoveredOptionTop = Color3.fromRGB(20, 20, 20),
 	    hoveredOptionBottom = Color3.fromRGB(18, 18, 18),
 	    unhoveredOptionBottom = Color3.fromRGB(14, 14, 14),
-	    tabText = Color3.fromRGB(230, 230, 230)
+	    tabText = ui.colors.main
 	},
 	gui_parent = (function()
 		local x, c = pcall(function()
@@ -8122,4 +8122,5 @@ library.Window = library.CreateWindow
 library.W = library.CreateWindow
 
 return library, library_flags, library.subs
+
 
